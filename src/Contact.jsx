@@ -1,19 +1,37 @@
 import React from "react";
 import { FaEnvelope, FaPhone, FaWhatsapp } from "react-icons/fa";
+import { motion } from "framer-motion";
 
 const Contact = () => {
+    const cardVariants = {
+        hidden: { opacity: 0, y: 50 },
+        visible: { opacity: 1, y: 0, transition: { duration: 0.6, ease: "easeOut" } },
+    };
+
     return (
         <section
             id="contact"
-            className=" bg-gray-900 flex flex-col items-center justify-center px-6 md:px-20 py-24"
+            className="bg-gray-950 flex flex-col items-center justify-center px-6 md:px-20 py-20"
         >
-            <h2 className="text-4xl font-extrabold text-white mb-12 text-center">
+            <motion.h2
+                className="text-4xl font-extrabold text-white mb-12 text-center"
+                initial={{ opacity: 0, y: -20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8 }}
+                viewport={{ amount: 0.5 }}
+            >
                 Contact Me
-            </h2>
+            </motion.h2>
 
             <div className="grid gap-8 md:grid-cols-3 max-w-4xl w-full">
                 {/* Email Card */}
-                <div className="bg-gradient-to-br from-teal-500 to-cyan-500 rounded-3xl shadow-2xl p-8 flex items-center space-x-4 transition transform hover:scale-105">
+                <motion.div
+                    className="bg-gradient-to-br from-teal-500 to-cyan-500 rounded-3xl shadow-2xl p-8 flex items-center space-x-4 transition transform hover:scale-115"
+                    variants={cardVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ amount: 0.5 }}
+                >
                     <FaEnvelope className="text-white w-8 h-8" />
                     <a
                         href="mailto:rubayetalam21@gmail.com"
@@ -21,10 +39,16 @@ const Contact = () => {
                     >
                         rubayetalam21@gmail.com
                     </a>
-                </div>
+                </motion.div>
 
                 {/* Phone Card */}
-                <div className="bg-gradient-to-br from-teal-500 to-cyan-500 rounded-3xl shadow-2xl p-8 flex items-center space-x-4 transition transform hover:scale-105">
+                <motion.div
+                    className="bg-gradient-to-br from-teal-500 to-cyan-500 rounded-3xl shadow-2xl p-8 flex items-center space-x-4 transition transform hover:scale-115"
+                    variants={cardVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ amount: 0.5 }}
+                >
                     <FaPhone className="text-white w-8 h-8" />
                     <a
                         href="tel:+8801717664500"
@@ -32,10 +56,16 @@ const Contact = () => {
                     >
                         +880 1717 664500
                     </a>
-                </div>
+                </motion.div>
 
                 {/* WhatsApp Card */}
-                <div className="bg-gradient-to-br from-teal-500 to-cyan-500 rounded-3xl shadow-2xl p-8 flex items-center space-x-4 transition transform hover:scale-105">
+                <motion.div
+                    className="bg-gradient-to-br from-teal-500 to-cyan-500 rounded-3xl shadow-2xl p-8 flex items-center space-x-4 transition transform hover:scale-115"
+                    variants={cardVariants}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ amount: 0.5 }}
+                >
                     <FaWhatsapp className="text-white w-8 h-8" />
                     <a
                         href="https://wa.me/+8801717664500"
@@ -45,7 +75,7 @@ const Contact = () => {
                     >
                         WhatsApp Chat
                     </a>
-                </div>
+                </motion.div>
             </div>
         </section>
     );
