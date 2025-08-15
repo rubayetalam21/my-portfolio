@@ -48,17 +48,17 @@ const projectsData = [
 
 const Projects = () => {
     return (
-        <section id="projects" className="min-h-screen bg-gray-50 px-6 md:px-20 py-20">
+        <section id="projects" className=" bg-gray-900 px-6 md:px-20 py-4">
             <div className="max-w-6xl mx-auto">
-                <h2 className="text-4xl font-extrabold text-teal-600 mb-12 text-center">
+                <h2 className="text-4xl font-extrabold text-white mb-12 text-center">
                     Projects
                 </h2>
 
-                <div className="grid md:grid-cols-3 gap-10">
+                <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
                     {projectsData.map(({ id, name, image }) => (
                         <div
                             key={id}
-                            className="bg-white rounded-3xl shadow-lg overflow-hidden flex flex-col"
+                            className="bg-gray-800 rounded-3xl shadow-2xl border-1 border-gradient-to-r border-teal-500 overflow-hidden flex flex-col transform hover:scale-105 transition duration-300"
                         >
                             <img
                                 src={image}
@@ -66,10 +66,10 @@ const Projects = () => {
                                 className="w-full h-48 object-cover"
                             />
                             <div className="p-6 flex flex-col flex-grow">
-                                <h3 className="text-xl font-semibold mb-4">{name}</h3>
+                                <h3 className="text-xl font-semibold text-teal-400 mb-4">{name}</h3>
                                 <Link
                                     to={`/projects/${id}`}
-                                    className="mt-auto inline-block text-center bg-teal-600 hover:bg-teal-700 text-white py-2 px-4 rounded-full transition"
+                                    className="mt-auto inline-block text-center bg-gradient-to-r from-teal-500 to-cyan-500 hover:from-teal-600 hover:to-cyan-600 text-white py-2 px-4 rounded-full transition"
                                 >
                                     View More / Details
                                 </Link>

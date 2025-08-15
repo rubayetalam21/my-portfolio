@@ -1,5 +1,5 @@
 import React from "react";
-import { useParams, Link, useNavigate } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 
 const projectsData = [
     {
@@ -54,11 +54,11 @@ const ProjectDetails = () => {
 
     if (!project) {
         return (
-            <div className="min-h-screen flex items-center justify-center">
-                <p className="text-gray-700 text-xl">Project not found.</p>
+            <div className="min-h-screen flex flex-col items-center justify-center bg-gray-900 px-6 md:px-20">
+                <p className="text-white text-xl mb-4">Project not found.</p>
                 <button
                     onClick={() => navigate(-1)}
-                    className="ml-4 px-4 py-2 bg-teal-600 text-white rounded hover:bg-teal-700"
+                    className="px-4 py-2 bg-teal-500 hover:bg-teal-600 text-white rounded-full transition"
                 >
                     Go Back
                 </button>
@@ -67,60 +67,60 @@ const ProjectDetails = () => {
     }
 
     return (
-        <section className="min-h-screen bg-white px-6 md:px-20 py-20 max-w-4xl mx-auto">
-            <button
-                onClick={() => navigate(-1)}
-                className="mb-8 text-teal-600 hover:underline"
-            >
-                &larr; Back to Projects
-            </button>
+        <section className="min-h-screen bg-gray-900 px-6 md:px-20 py-20 flex justify-center">
+            <div className="max-w-5xl w-full bg-gradient-to-br from-teal-500 to-cyan-500 rounded-3xl shadow-2xl p-10 space-y-8 text-white transition transform hover:scale-105">
+                <button
+                    onClick={() => navigate(-1)}
+                    className="text-white hover:underline"
+                >
+                    &larr; Back to Projects
+                </button>
 
-            <h1 className="text-4xl font-extrabold text-gray-800 mb-6">
-                {project.name}
-            </h1>
+                <h1 className="text-4xl font-extrabold mb-6">{project.name}</h1>
 
-            <img
-                src={project.image}
-                alt={project.name}
-                className="w-full h-64 object-cover rounded-2xl mb-8"
-            />
+                <img
+                    src={project.image}
+                    alt={project.name}
+                    className="w-full h-64 object-cover rounded-2xl shadow-lg mb-8"
+                />
 
-            <div className="space-y-6 text-gray-700">
-                <p>
-                    <strong>Main Technology Stack:</strong> {project.techStack}
-                </p>
-                <p>
-                    <strong>Brief Description:</strong> {project.description}
-                </p>
-                <p>
-                    <strong>Live Project Link:</strong>{" "}
-                    <a
-                        href={project.liveLink}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-teal-600 hover:underline"
-                    >
-                        {project.liveLink}
-                    </a>
-                </p>
-                <p>
-                    <strong>GitHub Repository (Client):</strong>{" "}
-                    <a
-                        href={project.githubClient}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-teal-600 hover:underline"
-                    >
-                        {project.githubClient}
-                    </a>
-                </p>
-                <p>
-                    <strong>Challenges Faced:</strong> {project.challenges}
-                </p>
-                <p>
-                    <strong>Potential Improvements & Future Plans:</strong>{" "}
-                    {project.improvements}
-                </p>
+                <div className="space-y-4">
+                    <p>
+                        <strong>Main Technology Stack:</strong> {project.techStack}
+                    </p>
+                    <p>
+                        <strong>Brief Description:</strong> {project.description}
+                    </p>
+                    <p>
+                        <strong>Live Project Link:</strong>{" "}
+                        <a
+                            href={project.liveLink}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="underline hover:text-gray-200"
+                        >
+                            {project.liveLink}
+                        </a>
+                    </p>
+                    <p>
+                        <strong>GitHub Repository (Client):</strong>{" "}
+                        <a
+                            href={project.githubClient}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="underline hover:text-gray-200"
+                        >
+                            {project.githubClient}
+                        </a>
+                    </p>
+                    <p>
+                        <strong>Challenges Faced:</strong> {project.challenges}
+                    </p>
+                    <p>
+                        <strong>Potential Improvements & Future Plans:</strong>{" "}
+                        {project.improvements}
+                    </p>
+                </div>
             </div>
         </section>
     );
